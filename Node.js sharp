@@ -1,0 +1,12 @@
+const sharp = require('sharp');
+
+const image = sharp('example.jpg');
+
+image.metadata()
+    .then(metadata => {
+        console.log(`Image width: ${metadata.width}, height: ${metadata.height}`);
+    });
+
+image.grayscale()
+    .toFile('grayscale_example.jpg')
+    .then(() => console.log('Image converted to grayscale.'));
